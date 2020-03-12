@@ -8,9 +8,14 @@
         <p class="medium__item">
             <span>Status:</span> {{ characterList.status }}
         </p>
-        <p class="last__item">
+        <p class="medium__item">
             <span>Species:</span> {{ characterList.species }}
         </p>
+        <p class="last__item">
+            <span>Episodes:</span> {{ characterList.episode }}
+        </p>
+
+
     </div>
 </template>
 
@@ -19,6 +24,7 @@
         name: "Card",
         props: ['characterList']
     }
+
 </script>
 
 <style scoped>
