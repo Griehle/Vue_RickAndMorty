@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import Card from '@/components/Card.vue';
+    import Card from '../components/Card.vue';
     import { api } from '../services/api';
 
     export default {
@@ -38,6 +38,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>
