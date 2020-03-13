@@ -11,18 +11,34 @@
         <p class="medium__item">
             <span>Species:</span> {{ characterList.species }}
         </p>
-        <p class="last__item">
-            <span>Episodes:</span> {{ characterList.episode }}
-        </p>
 
+        <span>Episodes:</span>
+        <ul>
+        <li>{{ episode.name }}</li>
+        </ul>
 
     </div>
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: "Card",
-        props: ['characterList']
+        props: ['characterList'],
+
+        data() {
+            return{
+                episode: []
+            }
+        },
+        created(){
+            this.episode = axios.get(this.characterList.episode)
+                .then(response => response.data)
+                .then(data => {
+                    this.episode = data
+                }).map(this.episode.name)
+            }
     }
 
 </script>
