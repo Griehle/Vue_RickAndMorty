@@ -2,12 +2,18 @@
     <div class="container">
         <h1>My Api project in Vue</h1>
         <p>Wanna see <b>new characters!</b></p>
+        <button v-on:click="reload()">CLICK HERE</button>
     </div>
 </template>
 
 <script>
     export default {
-        name: "headers"
+        name: "headers",
+        methods: {
+            reload(){
+                location.reload();
+            }
+        }
     }
 </script>
 
@@ -28,6 +34,12 @@
     }
     p {
         color: #12ee6d;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+    }
+    button{
+        background-color: #12EE6D;
+        font-size: 11pt;
+        color: red;
+        margin-bottom: 10px;
     }
 </style>
