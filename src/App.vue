@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Header from './components/Headers.vue'
 import Footer from './components/Footer.vue'
 import './assets/styles.css';
 

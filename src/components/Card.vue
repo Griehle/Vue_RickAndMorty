@@ -14,7 +14,7 @@
 
         <span>Episodes:</span>
         <ul>
-        <li>{{ episode.name }}</li>
+        <li v-for="episode in episodes" :key="episode.id">{{ episode.name }}</li>
         </ul>
 
     </div>
@@ -28,17 +28,19 @@
         props: ['characterList'],
 
         data() {
-            return{
-                episode: []
+            return {
+                episodes: []
             }
         },
-        created(){
-            this.episode = axios.get(this.characterList.episode)
-                .then(response => response.data)
-                .then(data => {
-                    this.episode = data
-                }).map(this.episode.name)
+        created() {
+            for (let i = 0; i < this.characterList.episode.length; i++) {
+                axios.get(this.characterList.episode[i])
+                    .then(response => response.data)
+                    .then(data => {
+                        this.episodes.push(data);
+                    });
             }
+        }
     }
 
 </script>
@@ -66,5 +68,9 @@
     span {
         font-weight: bold;
         font-size: 14px;
+    }
+    .card-container{
+        text-align: left;
+        padding-left: 5%;
     }
 </style>
