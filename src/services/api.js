@@ -5,6 +5,6 @@ const axiosInstance = axios.create({
 });
 
 export const api = {
-    getCharacters: (randomCharacters) => axiosInstance.get(`/character/${randomCharacters}`),
-    //getEspisodes: (episiode) => axiosInstance.get('episode')
-}
+    getCharacters: (randomCharacters) => axiosInstance.get(`/character/${randomCharacters}`)
+};
+

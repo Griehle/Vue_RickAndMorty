@@ -36,10 +36,4 @@
         color: #12ee6d;
         margin-bottom: 10px;
     }
-    button{
-        background-color: #12EE6D;
-        font-size: 11pt;
-        color: red;
-        margin-bottom: 10px;
-    }
 </style>

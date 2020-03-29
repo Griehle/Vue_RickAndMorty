@@ -31,4 +31,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+button{
+    background-color: #12EE6D;
+    font-size: 11pt;
+    color: red;
+    margin-bottom: 10px;
+}
 </style>
