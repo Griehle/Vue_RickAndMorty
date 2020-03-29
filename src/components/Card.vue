@@ -1,5 +1,6 @@
 <template>
     <div :class=" 'card-container flip-card '+ flip ">
+
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <img
@@ -20,7 +21,7 @@
                 </ul>
             </div>
 
-            <div class="flip-card-back" v-if="back && back.name" >
+            <div class="flip-card-back" v-if="flip" >
                 <p><span>Name:</span> {{ back.name }}</p>
                 <p class="medium__item">
                     <span>Air Date:</span> {{ back.air_date }}
@@ -28,6 +29,13 @@
                 <p class="medium__item">
                     <span>Episode Number:</span> {{ back.episode }}
                 </p>
+                <p class="last__item">
+                    <span>Created on:</span> {{ back.created }}
+                </p>
+                <span>Characters:</span>
+                <ul>
+                    <li v-for="char in chars" :key="char.id">{{ char.name }}</li>
+                </ul>
                 <button @click="showFront">Go Back</button>
             </div>
         </div>
@@ -44,6 +52,7 @@
         data() {
             return {
                 episodes: [],
+                chars: [],
                 back: null,
                 flip: ''
             }
@@ -56,6 +65,15 @@
                         this.episodes.push(data);
                     });
             }
+            for (let i = 0; i < this.back.characters.length; i++) {
+                axios.get(this.back.characters[i])
+                    .then(response => response.data)
+                    .then(data => {
+                        this.chars.push(data);
+                        console.log(chars);
+                    });
+            }
+
         },
         methods: {
             showBack(episode){
@@ -136,7 +154,6 @@
 
     /* Style the back side */
     .flip-card-back {
-        padding-bottom: 50%;
         transform: rotateY(180deg);
     }
 </style>
