@@ -2,7 +2,7 @@
     <div :class=" 'card-container flip-card '+ flip ">
 
         <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="flip-card-front" v-if="!flip">
                 <img
                         :src="characterList.image"
                         alt="avatar-image"
@@ -32,6 +32,7 @@
                 <p class="last__item">
                     <span>Created on:</span> {{ back.created }}
                 </p>
+                <!--{{back.characters}}-->
                 <span>Characters:</span>
                 <ul>
                     <li v-for="char in chars" :key="char.id">{{ char.name }}</li>
@@ -67,10 +68,9 @@
             }
             for (let i = 0; i < this.back.characters.length; i++) {
                 axios.get(this.back.characters[i])
-                    .then(response => response.data)
-                    .then(data => {
-                        this.chars.push(data);
-                        console.log(chars);
+                    .then(response => response.stuff)
+                    .then(stuff => {
+                        this.chars.push(stuff);
                     });
             }
 
