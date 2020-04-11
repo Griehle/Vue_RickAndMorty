@@ -36,3 +36,6 @@ ul{
     list-style: none;
     padding: 0;
 }
+ul li{
+    cursor: pointer;
+}
