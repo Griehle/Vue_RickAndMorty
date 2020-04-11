@@ -91,7 +91,7 @@
 
 <style scoped>
     .cardmeta{
-        padding-left: 15px;
+        padding: 0 15px;
     }
     .card-container {
         display: flex;
