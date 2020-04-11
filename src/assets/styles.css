@@ -32,3 +32,7 @@ body {
     grid-gap: 25px;
     justify-content: center;
 }
+ul{
+    list-style: none;
+    padding: 0;
+}

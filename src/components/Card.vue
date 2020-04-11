@@ -1,12 +1,12 @@
 <template>
     <div :class=" 'card-container flip-card '+ flip ">
-
         <div class="flip-card-inner">
             <div class="flip-card-front" v-if="!flip">
                 <img
                         :src="characterList.image"
                         alt="avatar-image"
                 >
+                <div class="cardmeta">
                 <p><span>Name:</span> {{ characterList.name }}</p>
                 <p class="medium__item">
                     <span>Status:</span> {{ characterList.status }}
@@ -19,9 +19,10 @@
                 <ul>
                     <li v-for="episode in episodes" :key="episode.id" @click="showBack(episode)">{{ episode.name }}</li>
                 </ul>
+                </div>
             </div>
 
-            <div class="flip-card-back" v-if="flip" >
+            <div class="flip-card-back cardmeta" v-if="flip" >
                 <p><span>Name:</span> {{ back.name }}</p>
                 <p class="medium__item">
                     <span>Air Date:</span> {{ back.air_date }}
@@ -30,7 +31,7 @@
                     <span>Episode Number:</span> {{ back.episode }}
                 </p>
                 <p class="last__item">
-                    <span>Created on:</span> {{ back.created }}
+                    <span>Created on:</span> {{back.created.split('T')[0]}}
                 </p>
                 <!--{{back.characters}}-->
                 <span>Characters:</span>
@@ -89,6 +90,9 @@
 </script>
 
 <style scoped>
+    .cardmeta{
+        padding-left: 15px;
+    }
     .card-container {
         display: flex;
         flex-direction: column;
@@ -98,10 +102,12 @@
         cursor: pointer;
         -moz-osx-font-smoothing: grayscale;
         perspective: 1000px;
+        text-align: left;
     }
     img {
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
+        width: 100%;
     }
     .medium__item{
         margin-top: 5px;
@@ -113,10 +119,6 @@
     span {
         font-weight: bold;
         font-size: 14px;
-    }
-    .card-container{
-        text-align: left;
-        padding-left: 5%;
     }
 
     .flip-card {
@@ -144,11 +146,6 @@
         height: 100%;
         -webkit-backface-visibility: hidden; /* Safari */
         backface-visibility: hidden;
-    }
-
-    /* Style the front side (fallback if image is missing) */
-    .flip-card-front {
-
     }
 
     /* Style the back side */
