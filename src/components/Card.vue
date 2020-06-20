@@ -15,9 +15,9 @@
                     <span>Species:</span> {{ characterList.species }}
                 </p>
 
-                <button><span>Episodes: (click for Episode details)</span></button>
+                <span>Episodes: (click for Episode details)</span>
                 <ul>
-                    <li v-for="episode in episodes" :key="episode.id" @click="showBack(episode)">{{ episode.name }}</li>
+                  <li v-for="episode in episodes" :key="episode.id" @click="showBack(episode)"><button class="outlined">{{ episode.name }}</button></li>
                 </ul>
                 </div>
             </div>
@@ -120,11 +120,6 @@
         font-size: 14px;
     }
 
-    .flip-card {
-        position: relative;
-        perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    }
-
     /* This container is needed to position the front and back side */
     .flip-card-inner {
         position: relative;
@@ -147,5 +142,10 @@
     /* Style the back side */
     .flip-card-back {
         transform: rotateY(180deg);
+    }
+    .outlined{
+        padding: 10px;
+        border: solid 1px black;
+        pointer: finger;
     }
 </style>
