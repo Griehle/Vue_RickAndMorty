@@ -15,7 +15,7 @@
                     <span>Species:</span> {{ characterList.species }}
                 </p>
 
-                <span>Episodes: (click for Episode details)</span>
+                <button><span>Episodes: (click for Episode details)</span></button>
                 <ul>
                     <li v-for="episode in episodes" :key="episode.id" @click="showBack(episode)">{{ episode.name }}</li>
                 </ul>
